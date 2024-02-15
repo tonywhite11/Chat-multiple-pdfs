@@ -28,7 +28,7 @@ css = '''
 bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">
-        <img src="https://i.ibb.co/cN0nmSj/Screenshot-2023-05-28-at-02-37-21.png" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+        <img src="https://cdn.leonardo.ai/users/b1857c09-ba23-43d2-af42-e00d457f9e1a/generations/d6121242-e1d9-4e7e-8c26-87d97e652d3a/Leonardo_Diffusion_LOGO_A_symbol_reepresenting_the_synchroniz_1.jpg" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
     </div>
     <div class="message">{{MSG}}</div>
 </div>
@@ -37,7 +37,7 @@ bot_template = '''
 user_template = '''
 <div class="chat-message user">
     <div class="avatar">
-        <img src="https://i.ibb.co/rdZC7LZ/Photo-logo-1.png">
+        <img src="https://cdn.leonardo.ai/users/b1857c09-ba23-43d2-af42-e00d457f9e1a/generations/d6121242-e1d9-4e7e-8c26-87d97e652d3a/Leonardo_Diffusion_LOGO_A_symbol_reepresenting_the_synchroniz_0.jpg">
     </div>    
     <div class="message">{{MSG}}</div>
 </div>

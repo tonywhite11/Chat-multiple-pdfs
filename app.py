@@ -1,3 +1,4 @@
+import torch
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
@@ -9,6 +10,9 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain.llms import HuggingFaceHub
+
+# Uncomment when using llm from HuggingFaceHub
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -32,6 +36,7 @@ def get_text_chunks(text):
 
 def get_vectorstore(text_chunks):
     embeddings = OpenAIEmbeddings()
+    # Uncomment when using llm from HuggingFaceHub
     # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
@@ -39,6 +44,11 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI()
+    # Uncomment when using llm from HuggingFaceHub
+    # Uses gpu if available
+    # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512}).to(device)
+    
+    # Uses cpu only
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
 
     memory = ConversationBufferMemory(
